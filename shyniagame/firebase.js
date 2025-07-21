@@ -5,13 +5,14 @@ import { getDatabase, ref, set, get, onValue, update } from "https://www.gstatic
 // firebase.js
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyB04bqo0BsEJaV5SymGFY64_YXT2dBd5yw",
+  authDomain: "number-guessing-game-c18bc.firebaseapp.com",
+  databaseURL: "https://number-guessing-game-c18bc-default-rtdb.firebaseio.com",
+  projectId: "number-guessing-game-c18bc",
+  storageBucket: "number-guessing-game-c18bc.firebasestorage.app",
+  messagingSenderId: "416588493658",
+  appId: "1:416588493658:web:a95fdac2e6f75d06adb963",
+  measurementId: "G-53HNXR22X2"
 };
 
 // Initialize Firebase
