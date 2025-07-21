@@ -1,3 +1,10 @@
+import { database } from './firebase.js';
+import {
+  ref,
+  set,
+  onValue,
+  get
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 function createGame() {
   const gameCode = document.getElementById("gameCodeCreate").value.trim();
   if (!gameCode) return alert("Enter a code to create a game.");
@@ -41,4 +48,3 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("createBtn").addEventListener("click", createGame);
   document.getElementById("joinBtn").addEventListener("click", joinGame);
 });
-
