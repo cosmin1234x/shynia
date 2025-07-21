@@ -3,35 +3,32 @@ let playerId = "p" + Math.floor(Math.random() * 10000);
 let opponentId = null;
 let gameRef, secretCode, gameCode;
 
+// app.js
+
 function joinGame() {
-  gameCode = document.getElementById("gameCode").value;
-  secretCode = document.getElementById("secret").value;
+  const gameCode = document.getElementById("gameCodeInput").value;
 
-  if (!/^\d{4}$/.test(secretCode)) return alert("Enter a valid 4-digit number.");
+  if (!gameCode) {
+    alert("Please enter a game code.");
+    return;
+  }
 
-  gameRef = ref(db, "games/" + gameCode);
+  const gameRef = database.ref("games/" + gameCode);
 
-  get(gameRef).then(snapshot => {
-    let data = snapshot.val();
-    if (!data) {
-      set(gameRef, {
-        [playerId]: { secret: secretCode, guesses: [] },
-        turn: playerId
-      });
-    } else {
-      const players = Object.keys(data).filter(k => k.startsWith("p"));
-      if (players.length >= 2) return alert("Game is full.");
-      opponentId = players[0];
-      update(gameRef, {
-        [playerId]: { secret: secretCode, guesses: [] }
-      });
-    }
-
-    document.getElementById("setup").classList.add("hidden");
-    document.getElementById("game").classList.remove("hidden");
-    listenForUpdates();
-  });
+  gameRef.once("value")
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        alert("Joined game: " + gameCode);
+        // Continue game logic here...
+      } else {
+        alert("Game not found.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error joining game:", error);
+    });
 }
+
 
 function listenForUpdates() {
   onValue(gameRef, snapshot => {
