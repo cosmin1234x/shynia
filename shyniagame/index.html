@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>2-Player Guessing Game</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Shynia Game</title>
 </head>
 <body>
-  <h1>🔢 2-Player Guessing Game</h1>
+  <h1>Join Game</h1>
+  <input type="text" id="gameCodeInput" placeholder="Enter Game Code" />
+  <button onclick="joinGame()">Join</button>
 
-  <div id="setup">
-    <input type="text" id="gameCode" placeholder="Enter Game Code">
-    <input type="password" id="secret" maxlength="4" placeholder="Enter 4-digit Secret">
-    <button onclick="joinGame()">Join Game</button>
-  </div>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js"></script>
 
-  <div id="game" class="hidden">
-    <h2 id="turnDisplay">Waiting for opponent...</h2>
-    <input type="text" id="guessInput" maxlength="4" placeholder="Your guess">
-    <button onclick="submitGuess()">Submit Guess</button>
-    <div id="history"></div>
-  </div>
-
-  <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js"></script>
-  <script src="firebase.js" type="module"></script>  // Add type="module"
-  <script src="app.js" type="module"></script>      // Add type="module"
+  <!-- Your Firebase Config & Logic -->
+  <script src="firebase.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
