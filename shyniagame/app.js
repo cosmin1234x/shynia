@@ -37,3 +37,8 @@ function joinGame() {
     }
   });
 }
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("createBtn").addEventListener("click", createGame);
+  document.getElementById("joinBtn").addEventListener("click", joinGame);
+});
+
