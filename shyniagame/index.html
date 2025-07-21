@@ -1,19 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Shynia Game</title>
+  <meta charset="UTF-8">
+  <title>Shynia Multiplayer Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Join Game</h1>
-  <input type="text" id="gameCodeInput" placeholder="Enter Game Code" />
-  <button onclick="joinGame()">Join</button>
+  <h1>Shynia Multiplayer Game</h1>
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js"></script>
+  <div>
+    <input type="text" id="gameCodeCreate" placeholder="Create Game Code">
+    <button onclick="createGame()">Create Game</button>
+  </div>
 
-  <!-- Your Firebase Config & Logic -->
-  <script src="firebase.js"></script>
+  <div>
+    <input type="text" id="gameCodeInput" placeholder="Enter Game Code">
+    <button onclick="joinGame()">Join Game</button>
+  </div>
+
+  <hr>
+  <div id="status"></div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+  <!-- Firebase Config -->
+  <script src="firebase-config.js"></script>
+
+  <!-- Game Logic -->
   <script src="app.js"></script>
 </body>
 </html>
